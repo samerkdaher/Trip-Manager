@@ -483,6 +483,160 @@ input:focus,select:focus,textarea:focus{border-color:var(--brm);box-shadow:0 0 0
   .hero-trip-name{font-size:20px}
   .nt{font-size:11px;padding:10px 8px}
 }
+
+/* ══════════════════════════════════
+   MOBILE BOTTOM NAV + FULL REDESIGN
+   ══════════════════════════════════ */
+@media(max-width:700px){
+
+  /* Hide desktop top nav */
+  .nav{ display:none !important; }
+  .top-end{ padding:0 8px; gap:6px; }
+  .logo{ padding:9px 12px; }
+  .logo-sb{ display:none; }
+
+  /* Body padding for bottom nav */
+  .body{ padding:12px 12px 80px 12px; }
+
+  /* Bottom nav bar */
+  .mobile-nav{
+    display:flex !important;
+    position:fixed;
+    bottom:0; left:0; right:0;
+    background:var(--card);
+    border-top:1px solid var(--bdr);
+    z-index:200;
+    box-shadow:0 -2px 12px rgba(0,0,0,.08);
+    padding:0 4px;
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+  .mn-btn{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:8px 4px 6px;
+    border:none;
+    background:transparent;
+    cursor:pointer;
+    color:var(--t3);
+    font-size:10px;
+    font-weight:500;
+    transition:color .15s;
+    gap:3px;
+    -webkit-tap-highlight-color:transparent;
+    min-width:0;
+  }
+  .mn-icon{ font-size:20px; line-height:1; }
+  .mn-label{ font-size:10px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:56px; }
+  .mn-btn.on{ color:var(--brd); }
+  .mn-btn.on .mn-label{ font-weight:700; }
+  .mn-dot{ display:none; width:4px; height:4px; border-radius:50%; background:var(--br); }
+  .mn-btn.on .mn-dot{ display:block; }
+
+  /* Hero banner mobile */
+  .trip-hero{ padding:14px 16px 12px; }
+  .hero-top{ flex-direction:column; gap:10px; margin-bottom:10px; }
+  .hero-appname{ font-size:14px; }
+  .hero-author{ display:none; }
+  .hero-trip-name{ font-size:28px; }
+  .hero-trip-name.small{ font-size:20px; }
+  .hero-meta{ gap:6px; flex-wrap:wrap; }
+  .hero-meta-item{ font-size:11px; }
+
+  /* Cards */
+  .card{ padding:12px 14px; margin-bottom:10px; }
+  .g2,.g4{ grid-template-columns:1fr !important; gap:10px; }
+  .g3{ grid-template-columns:1fr 1fr !important; }
+
+  /* Stats */
+  .g4{ grid-template-columns:1fr 1fr !important; }
+  .sv{ font-size:18px; }
+  .stat{ padding:10px 12px; }
+
+  /* Pool buckets */
+  .pool-buckets{ grid-template-columns:1fr 1fr !important; gap:8px; }
+  .pbucket{ padding:11px 12px; }
+  .pbucket-val{ font-size:20px; }
+
+  /* Forms */
+  .row{ flex-wrap:wrap; gap:8px; }
+  .row>.field{ min-width:calc(50% - 4px); }
+  input,select,textarea{
+    font-size:16px !important; /* Prevents iOS zoom */
+    padding:9px 10px;
+  }
+  .btn{ padding:8px 12px; font-size:13px; }
+  .btn-sm{ padding:5px 10px; font-size:12px; }
+
+  /* Tables — horizontal scroll */
+  .tbl-wrap{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .tbl{ min-width:480px; font-size:12px; }
+  .tbl th,.tbl td{ padding:7px 6px; }
+
+  /* Member list */
+  .bic{ width:32px; height:32px; font-size:16px; }
+
+  /* Daily tracker */
+  .dt-add-row{ flex-direction:column; gap:8px; }
+  .dt-field{ flex:none !important; width:100%; }
+  .dt-btn{ width:100%; justify-content:center; padding:10px; }
+  .dt-item{ padding:8px 10px; }
+  .dt-item-desc{ font-size:13px; }
+
+  /* Pool manager */
+  .pool-h-row{ flex-direction:column; gap:10px; }
+  .pool-topup-btn{ width:100%; justify-content:center; }
+  .move-row,.topup-row{ flex-direction:column; gap:8px; }
+  .move-lbl{ margin-bottom:0; }
+
+  /* Settings */
+  .settings-grid{ grid-template-columns:1fr !important; }
+  .stat-grid{ grid-template-columns:1fr 1fr; }
+
+  /* Login overlay */
+  #login-overlay > div{
+    width:92vw;
+    padding:24px 20px;
+    border-radius:16px;
+  }
+  #pin-input{ font-size:24px !important; }
+
+  /* Alert banner */
+  #alert-banner{
+    top:auto !important;
+    bottom:80px;
+    right:12px;
+    left:12px;
+    width:auto;
+  }
+
+  /* Panels */
+  .panel,.view-panel{
+    border-radius:var(--r);
+    padding:14px;
+  }
+
+  /* Checklist */
+  .ck-row{ padding:10px 10px; }
+  .ck-box{ width:24px; height:24px; border-radius:7px; }
+
+  /* Tabs (calc sub-tabs) */
+  .stabs{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .stab{ white-space:nowrap; padding:10px 14px; font-size:13px; }
+
+  /* Vgrid */
+  .vgrid{ grid-template-columns:1fr 1fr; }
+
+  /* Sync status — hide on mobile to save space */
+  #sync-status{ display:none; }
+}
+
+/* Desktop: hide mobile nav */
+@media(min-width:701px){
+  .mobile-nav{ display:none !important; }
+}
 </style>
 </head>
 <body>
@@ -900,7 +1054,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--brm);box-shadow:0 0 0
             </select>
           </div>
         </div>
-        <div style="overflow-x:auto">
+        <div class="tbl-wrap">
           <table class="tbl" id="pay-tbl" style="min-width:540px">
             <thead><tr>
               <th style="width:120px">Member</th>
@@ -1346,6 +1500,15 @@ async function saveToCloud() {
   const el = G('sync-status');
   if (el) { el.textContent = '⏳ Saving…'; el.style.color = 'var(--amb)'; }
   try {
+    // Capture current form values into S before saving
+    const depEl=G('dep'), retEl=G('ret'), grpEl=G('grp'), destEl=G('dest'), ttEl=G('ttype');
+    if(depEl) S.dep=depEl.value;
+    if(retEl) S.ret=retEl.value;
+    if(grpEl) S.grp=grpEl.value;
+    if(destEl) S.dest=destEl.value;
+    if(ttEl) S.ttype=ttEl.value;
+    // Ensure fund.log is array before saving
+    if(!Array.isArray(S.fund.log)) S.fund.log=[];
     const res = await fetch(API_BASE, {
       method : 'PUT',
       headers: {
@@ -1373,15 +1536,28 @@ async function loadFromCloud() {
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const json = await res.json();
     const data = json.record || {};
-    // Merge cloud data into S carefully
-    if (data.members)      S.members      = data.members;
-    if (data.payments)     S.payments     = data.payments;
-    if (data.itin)         S.itin         = data.itin;
-    if (data.dailyExps)    S.dailyExps    = data.dailyExps;
-    if (data.dailyBudgets) S.dailyBudgets = data.dailyBudgets;
-    if (data.fund)         S.fund         = Object.assign({cardUSD:0,topupsUSD:0,log:[],committed:{}}, data.fund);
-    if (data.checklist)    S.checklist    = data.checklist;
-    if (data.budget)       S.budget       = data.budget;
+    // Full restore of ALL S fields from cloud
+    S.members      = data.members      || [];
+    S.payments     = data.payments     || [];
+    S.itin         = data.itin         || [];
+    S.dailyExps    = data.dailyExps    || {};
+    S.dailyBudgets = data.dailyBudgets || {};
+    S.checklist    = data.checklist    || S.checklist;
+    S.budget       = data.budget       || S.budget;
+    // fund: ensure log is always array
+    const f = data.fund || {};
+    S.fund = {
+      cardUSD   : parseFloat(f.cardUSD)   || 0,
+      topupsUSD : parseFloat(f.topupsUSD) || 0,
+      log       : Array.isArray(f.log) ? f.log : [],
+      committed : (f.committed && typeof f.committed==='object' && !Array.isArray(f.committed)) ? f.committed : {}
+    };
+    // trip details
+    if (data.dep)      { const el=G('dep');  if(el) el.value=data.dep; }
+    if (data.ret)      { const el=G('ret');  if(el) el.value=data.ret; }
+    if (data.grp)      { const el=G('grp');  if(el) el.value=data.grp; }
+    if (data.dest)     { const el=G('dest'); if(el) el.value=data.dest; }
+    if (data.ttype)    { const el=G('ttype');if(el) el.value=data.ttype; }
     if (el) { el.textContent = '✓ Updated ' + new Date().toLocaleTimeString(); el.style.color = 'var(--grn)'; }
     // Re-render everything
     if (data.tripName) {
@@ -1485,7 +1661,7 @@ let S={
   alerts:{ dailyLimit:0, dailyLimitCur:'EUR', poolWarn:20 },
   trips: null,
   dailyExps:{},dailyBudgets:{},
-  fund:{cardUSD:0,topupsUSD:0,log:{},committed:{}},
+  fund:{cardUSD:0,topupsUSD:0,log:[],committed:{}},
   checklist:[
     {t:'Passport / ID',d:false},{t:'Travel insurance',d:false},
     {t:'Phone charger',d:false},{t:'Cash & cards',d:false},{t:'Medications',d:false}
@@ -1612,6 +1788,8 @@ function readRestoreFile(file){
           '<div>💰 Payments: <strong>'+data.payments.length+'</strong></div>'+
           '<div>📅 Daily items: <strong>'+Object.values(data.dailyExps||{}).flat().length+'</strong></div>'+
           '<div>✈ Itinerary: <strong>'+(data.itin||[]).length+' stops</strong></div>'+
+          '<div>✅ Checklist: <strong>'+(data.checklist||[]).length+' items</strong></div>'+
+          '<div>💳 Fund log: <strong>'+(Array.isArray((data.fund||{}).log)?(data.fund.log).length:0)+' entries</strong></div>'+
           (data.tripName?'<div style="grid-column:1/-1">🗺 Trip: <strong>'+esc(data.tripName)+'</strong></div>':'')+
           '</div>';
       }
@@ -1633,19 +1811,33 @@ function confirmRestore(){
   downloadBackup();
   // Apply restore
   const d=_pendingRestore;
-  if(d.members)      S.members=d.members;
-  if(d.payments)     S.payments=d.payments;
-  if(d.itin)         S.itin=d.itin;
-  if(d.dailyExps)    S.dailyExps=d.dailyExps;
-  if(d.dailyBudgets) S.dailyBudgets=d.dailyBudgets;
-  if(d.fund)         S.fund=Object.assign({cardUSD:0,topupsUSD:0,log:[],committed:{}},d.fund);
-  if(d.checklist)    S.checklist=d.checklist;
-  if(d.budget)       S.budget=d.budget;
-  if(d.tripName){
-    S.tripName=d.tripName; HERO_TRIP=d.tripName;
-    if(G('hero-trip-display')) G('hero-trip-display').textContent=d.tripName;
-    if(G('hero-trip-input')) G('hero-trip-input').value=d.tripName;
-  }
+  // Full restore of every field
+  S.members      = d.members      || [];
+  S.payments     = d.payments     || [];
+  S.itin         = d.itin         || [];
+  S.dailyExps    = d.dailyExps    || {};
+  S.dailyBudgets = d.dailyBudgets || {};
+  S.checklist    = d.checklist    || [];
+  S.budget       = d.budget       || [];
+  // fund — ensure log is array
+  const df=d.fund||{};
+  S.fund={
+    cardUSD   : parseFloat(df.cardUSD)   || 0,
+    topupsUSD : parseFloat(df.topupsUSD) || 0,
+    log       : Array.isArray(df.log) ? df.log : [],
+    committed : (df.committed && typeof df.committed==='object' && !Array.isArray(df.committed)) ? df.committed : {}
+  };
+  // trip name
+  const tn=d.tripName||'';
+  S.tripName=tn; HERO_TRIP=tn;
+  if(G('hero-trip-display')) G('hero-trip-display').textContent=tn||'Enter trip name';
+  if(G('hero-trip-input')) G('hero-trip-input').value=tn;
+  // trip form fields
+  if(d.dep  && G('dep'))  G('dep').value=d.dep;
+  if(d.ret  && G('ret'))  G('ret').value=d.ret;
+  if(d.grp  && G('grp'))  G('grp').value=d.grp;
+  if(d.dest && G('dest')) G('dest').value=d.dest;
+  if(d.ttype&& G('ttype'))G('ttype').value=d.ttype;
   _pendingRestore=null;
   G('restore-preview').style.display='none';
   G('restore-btn').style.display='none';
@@ -1763,7 +1955,7 @@ function renderFundAlloc(){
   const netLeft=pool-totalSpent;
   const cashPct=pool>0?Math.round(cashP/pool*100):50;
   const cardPct=100-cashPct;
-  const nTop=Array.isArray(S.fund.log)?S.fund.log.filter(l=>l.type==='topup').length:0;
+  const nTop=Array.isArray(S.fund.log)?S.fund.log.filter(l=>l&&l.type==='topup').length:0;
 
   // header
   G('fa-pool').textContent=fmtC(fromUSD(pool,CUR),CUR);
@@ -1821,6 +2013,9 @@ function openPanel(id,focusId){
 }
 function closePanel(id){G(id).classList.remove('on');}
 function nav(p,el){
+  // sync mobile bottom nav
+  document.querySelectorAll('.mn-btn').forEach(b=>b.classList.remove('on'));
+  const mnb=G('mn-'+p); if(mnb) mnb.classList.add('on');
   document.querySelectorAll('.pg').forEach(x=>x.classList.remove('on'));
   document.querySelectorAll('.nt').forEach(x=>x.classList.remove('on'));
   G('pg-'+p).classList.add('on');el.classList.add('on');
@@ -1911,7 +2106,7 @@ function renderCashStats(){
   const spent=cashSpentUSD()+cardSpentUSD();
   const remain=pool-spent;
   const g=S.members.length||1;
-  const nTop=Array.isArray(S.fund.log)?S.fund.log.filter(l=>l.type==='topup').length:0;
+  const nTop=Array.isArray(S.fund.log)?S.fund.log.filter(l=>l&&l.type==='topup').length:0;
   const el=G('cash-stats');if(!el)return;
   el.innerHTML=
     '<div class="stat"><div class="sl">Pool collected</div><div class="sv" style="color:var(--grn)">'+fmtC(fromUSD(pool,CUR),CUR)+'</div><div class="ss">'+S.payments.length+' contributions'+(nTop?' +'+nTop+' top-up':'')+'</div></div>'+
@@ -2397,6 +2592,14 @@ function calcConvert(){
   '</div>';
 }
 
+
+// ── Mobile bottom nav sync ──
+function mobileNav(page){
+  document.querySelectorAll('.mn-btn').forEach(b=>b.classList.remove('on'));
+  const btn=G('mn-'+page);
+  if(btn) btn.classList.add('on');
+}
+
 // ── Init ──
 (function(){
   const loaded = loadFromStorage();
@@ -2723,7 +2926,26 @@ function exportPDF(){
     });
   }
 
-  html+=`<div class="footer">Trip Manager — Exported ${new Date().toLocaleString()}</div></body></html>`;
+  html+=`<div class="footer">Trip Manager — Exported ${new Date().toLocaleString()}</div>
+  <!-- MOBILE BOTTOM NAV -->
+  <div class="mobile-nav">
+    <button class="mn-btn on" id="mn-plan" onclick="nav('plan',this)">
+      <span class="mn-icon">🗺</span><span class="mn-label">Plan</span><span class="mn-dot"></span>
+    </button>
+    <button class="mn-btn" id="mn-cash" onclick="nav('cash',this)">
+      <span class="mn-icon">💰</span><span class="mn-label">Cash</span><span class="mn-dot"></span>
+    </button>
+    <button class="mn-btn" id="mn-daily" onclick="nav('daily',this)">
+      <span class="mn-icon">📅</span><span class="mn-label">Daily</span><span class="mn-dot"></span>
+    </button>
+    <button class="mn-btn" id="mn-calc" onclick="nav('calc',this)">
+      <span class="mn-icon">📊</span><span class="mn-label">Calc</span><span class="mn-dot"></span>
+    </button>
+    <button class="mn-btn admin-only" id="mn-settings" onclick="nav('settings',this)">
+      <span class="mn-icon">⚙</span><span class="mn-label">Settings</span><span class="mn-dot"></span>
+    </button>
+  </div>
+</body></html>`;
 
   const w=window.open('','_blank');
   w.document.write(html);
